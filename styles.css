@@ -9,10 +9,18 @@ body{
 
 .well{
   height: 100%;
-  /*background: rgba(0, 0, 0, .3);*/
+  background: rgba(0, 0, 0, .3);
   border: none;
 }
 
 h2{
   text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+p{
+  color: #fff;
+  text-shadow: 1px 2px 2px rgba(0, 0, 0, .4);
 }
