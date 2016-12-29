@@ -4,9 +4,28 @@
   <meta charset="UTF-8">
   <title>Local Weather App</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1 class="lower">Local Weather</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="well text-center" id="myWell">
+          <div id="city"></div>
+          <div id="temp"></div>
+          <div id="cWeather"></div>
+          <div id="wind"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
