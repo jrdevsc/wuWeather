@@ -1,5 +1,5 @@
 var key = "5f0f96c76a3e03cf";
-var url = "http://api.wunderground.com/api/" +key;
+var url = "https://api.wunderground.com/api/" +key;
 
 $.ajax({
   url: url +"/geolookup/q/autoip.json",
