@@ -17,6 +17,9 @@ $.ajax({
         var simpleCall = lweather.current_observation;
         var icon = simpleCall.icon_url;
 
+        //get rid of hidden class on button, on response
+        $('#chk').removeClass('hidden');
+
         //append city
         $('#city').replaceWith("<h1>"+simpleCall.display_location.city+"</h1>");
 
