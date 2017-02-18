@@ -13,7 +13,6 @@ $.ajax({
       url: "https://api.wunderground.com/api/5f0f96c76a3e03cf/conditions/q/"+location+".json",
       dataType: "jsonp",
       success: function(lweather){
-        console.log(lweather);
         var simpleCall = lweather.current_observation;
         var icon = simpleCall.icon_url;
 
