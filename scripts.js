@@ -36,7 +36,7 @@ function getWeather(myLat, myLong){
 
 //manipulate the DOM with jquery.
 function showWeather(currentCond){
-  console.log(currentCond)
+  // console.log(currentCond)
   let myCity = currentCond.display_location.full;
   let myTemp = currentCond.temp_f;
   let myWeather = currentCond.weather;
