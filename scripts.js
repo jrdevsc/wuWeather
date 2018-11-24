@@ -18,10 +18,10 @@ if('geolocation' in navigator){
 //use coords from geolocation to look up city info.
 //quite possibly where the magic happens.
 function getWeather(myLat, myLong){
-  var lookupUrl = `http://api.wunderground.com/api/${key}/geolookup/q/${myLat},${myLong}.json`;
+  var lookupUrl = `https://api.wunderground.com/api/${key}/geolookup/q/${myLat},${myLong}.json`;
   axios.get(lookupUrl)
   .then(function(data){
-    var conditionUrl =`http://api.wunderground.com/api/${key}/conditions/q/${data.data.location.requesturl}.json`;
+    var conditionUrl =`https://api.wunderground.com/api/${key}/conditions/q/${data.data.location.requesturl}.json`;
     axios.get(conditionUrl)
     .then(function(data){
       var currentCond = data.data.current_observation;
