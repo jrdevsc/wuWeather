@@ -1,22 +1,28 @@
 // hosted at https://jrdevsc.github.io/wuWeather
-
+//exposed key, i know, but its a smiple weather app...
 var key = "5f0f96c76a3e03cf";
 
+//find locaion of user, if navigator isn't available, stop.
 if('geolocation' in navigator){
   navigator.geolocation.getCurrentPosition(function(pos){
+
+    //put lat and long in to vars, use them in a function.
     var myLat = pos.coords.latitude;
     var myLong = pos.coords.longitude;
     getWeather(myLat, myLong);
   })
 }else{
-  console.log("So much NO!")
+  console.log("Sorry, we can't look up your location at this time!")
 }
 
+//use coords from geolocation to look up city info.
+//quite possibly where the magic happens.
 function getWeather(myLat, myLong){
   var lookupUrl = `http://api.wunderground.com/api/${key}/geolookup/q/${myLat},${myLong}.json`;
   axios.get(lookupUrl)
   .then(function(data){
-    console.log(data.data);
+    var conditionUrl = data.data.location.requesturl;
+    
   })
   .catch(function(error){
     console.log(error);
