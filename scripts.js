@@ -1,6 +1,7 @@
 // hosted at https://jrdevsc.github.io/wuWeather
 //exposed key, i know, but its a smiple weather app...
 var key = "5f0f96c76a3e03cf";
+console.log("Working")
 
 //find locaion of user, if navigator isn't available, stop.
 if('geolocation' in navigator){
