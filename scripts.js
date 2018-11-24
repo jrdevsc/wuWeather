@@ -21,8 +21,12 @@ function getWeather(myLat, myLong){
   var lookupUrl = `http://api.wunderground.com/api/${key}/geolookup/q/${myLat},${myLong}.json`;
   axios.get(lookupUrl)
   .then(function(data){
-    var conditionUrl = data.data.location.requesturl;
-    
+    var conditionUrl =`http://api.wunderground.com/api/${key}/conditions/q/${data.data.location.requesturl}.json`;
+    axios.get(conditionUrl)
+    .then(function(data){
+      console.log(data);
+    })
+
   })
   .catch(function(error){
     console.log(error);
