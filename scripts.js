@@ -24,15 +24,20 @@ function getWeather(myLat, myLong){
     var conditionUrl =`http://api.wunderground.com/api/${key}/conditions/q/${data.data.location.requesturl}.json`;
     axios.get(conditionUrl)
     .then(function(data){
-      console.log(data);
+      var currentCond = data.data.current_observation;
+      // console.log(currentCond);
+      showWeather(currentCond);
     })
-
   })
   .catch(function(error){
     console.log(error);
   })
 }
 
+//manipulate the DOM
+function showWeather(currentCond){
+  console.log(currentCond);
+}
 
 
 
