@@ -34,55 +34,43 @@ function getWeather(myLat, myLong){
   })
 }
 
-//manipulate the DOM
+//manipulate the DOM with jquery.
 function showWeather(currentCond){
-  console.log(currentCond);
+  console.log(currentCond)
+  let myCity = currentCond.display_location.full;
+  let myTemp = currentCond.temp_f;
+  let myWeather = currentCond.weather;
+  let myWindCond = currentCond.wind_string;
+  let myWindDir = currentCond.wind_dir;
+  let myWindChill = currentCond.windchill_string;
+
+  //unhide err thang
+    $('#chk').removeClass('hidden');
+
+  //update city
+  $('#city').replaceWith(`<h1>${myCity}</h1>`);
+
+  //update temp
+  $('#temp').append(`<h2>Temp:</h2><h3>${myTemp}</h3>`);
+
+  //update weather
+  $('#cWeather').replaceWith(`<h2>Currently:</h2><h3>${myWeather}</h3>`);
+
+  //update wind
+  $('#wind').replaceWith(`<h2>Wind Conditions:</h2><p>${myWindCond}<br> Direction: ${myWindDir}<br> Wind Chill: ${myWindChill}</p>`);
+
+  //this makes the button work
+  $('#chk').click(function(){
+    var fTemp = parseInt(currentCond.temp_f);
+    var cTemp = parseInt(currentCond.temp_c);
+    if ($(this).text() == "Get Temp in F") {
+            $('#temp').html(`<h2>Temp:</h2><h3>${fTemp} F</h3>`);
+            $(this).text("Get Temp in C");
+          }else if($(this).text() == "Get Temp in C"){
+            $('#temp').html(`<h2>Temp:</h2><h3>${cTemp} C</h3>`);
+            $(this).text("Get Temp in F");
+          }else{
+            $(this).text("Should never fire...");
+          }
+  });
 }
-
-
-
-// $.ajax({
-//   url: url +"/geolookup/q/autoip.json",
-//   success: function(data){
-//     var location = data.location.requesturl;
-//     $.getJSON({
-//       url: "https://api.wunderground.com/api/5f0f96c76a3e03cf/conditions/q/"+location+".json",
-//       dataType: "jsonp",
-//       success: function(lweather){
-//         var simpleCall = lweather.current_observation;
-//         var icon = simpleCall.icon_url;
-//
-//         //get rid of hidden class on button, on response
-//         $('#chk').removeClass('hidden');
-//
-//         //append city
-//         $('#city').replaceWith("<h1>"+simpleCall.display_location.city+"</h1>");
-//
-//         //append temp
-//         $('#temp').append("<h2>Temp:</h2><h3>"+simpleCall.temp_f+"</h3>");
-//
-//         //append current weather conditions
-//         $('#cWeather').replaceWith("<h2>Currently:</h2><h3>"+simpleCall.weather+"</h3> <img src="+icon+" />");
-//
-//         //append wind
-//         $('#wind').replaceWith("<h2>Wind Conditions:</h2><p>"+simpleCall.wind_string+"<br> Direction: "+simpleCall.wind_dir+"<br> Wind Chill: "+simpleCall.windchill_f+"</p>");
-//
-//         //convert temp on button click
-//         $('#chk').click(function(){
-//           var fTemp = parseInt(simpleCall.temp_f);
-//           var cTemp = parseInt(simpleCall.temp_c);
-//
-//           if ($(this).text() == "Get Temp in F") {
-//                   $('#temp').html("<h2>Temp:</h2><h3>"+fTemp+" F</h3>");
-//                   $(this).text("Get Temp in C");
-//                 }else if($(this).text() == "Get Temp in C"){
-//                   $('#temp').html("<h2>Temp:</h2><h3>"+cTemp+" C</h3>");
-//                   $(this).text("Get Temp in F");
-//                 }else{
-//                   $(this).text("Should never fire...");
-//                 }
-//         });
-//       }
-//     });
-//   }
-// });
